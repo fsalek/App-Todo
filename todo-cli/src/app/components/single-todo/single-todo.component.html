@@ -1,0 +1,37 @@
+
+  <ng-container *ngIf="todo$ | async as todo">
+    <mat-card class="todo-info">
+      <mat-card-title>Nom: {{ todo.title }}</mat-card-title>
+      <mat-card-subtitle> State : {{todo.state}}</mat-card-subtitle>
+      <mat-card-subtitle>
+        <mat-radio-group [formControl]="stateFormCtr">
+          <mat-radio-button value="updateState">Update State </mat-radio-button>
+        </mat-radio-group>
+        <div class="state-row" [formControl]="stateVueCtr" *ngIf="showStateCtrl$ | async">
+          <mat-form-field appearance="outline">
+            <mat-label>Etat : </mat-label>
+            <input id="state" type="text" type="text"  matInput name="stat"
+                   placeholder="{{todo.state}}" required [(ngModel)]="todo.state">
+            <mat-error>Ce champ est requis</mat-error>
+          </mat-form-field>
+          <button mat-icon-button color="accent" (click)="onEditState()">
+            <mat-icon>send</mat-icon>
+          </button>
+        </div>
+      </mat-card-subtitle>
+      <mat-card-content>
+        Description : {{ todo.description }}
+      </mat-card-content>
+      <mat-card-actions>
+        <mat-spinner *ngIf="loading$ | async; else buttons"></mat-spinner>
+        <ng-template #buttons>
+          <div class="action-buttons">
+            <button mat-flat-button color="accent" (click)="onValid()">Valider</button>
+            <button mat-flat-button color="warn" (click)="onRefuse()">Refuser</button>
+          </div>
+        </ng-template>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+
+

@@ -1,0 +1,115 @@
+<!--<ng-container>
+  <mat-card-actions>
+      <button mat-flat-button color="primary" (click)="onGoBack()">RETOUR</button>
+  </mat-card-actions>
+  <mat-spinner *ngIf="loading" color="primary" mode="indeterminate"></mat-spinner>
+  <mat-card [formGroup]="mainForm" class="main-form">
+&lt;!&ndash;    <ng-container>&ndash;&gt;
+      <mat-card-title>Add new Todo</mat-card-title>
+      <mat-card class="form-card" formGroupName="todoInfo">
+        <div class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>Title</mat-label>
+            <label for="title">Titre</label>
+            <input id="title" type="text" matInput formControlName="title">
+            <mat-error>Ce champ est requis</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>State</mat-label>
+            <label for="state">Titre</label>
+            <input id="state" type="text" matInput formControlName="state">
+            <mat-error>Ce champ est requis</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <label for="description">Description</label>
+            <textarea id="description" type="text" matInput
+                      formControlName="description">
+            </textarea>
+            <mat-error>Ce champ est requis</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-card>
+&lt;!&ndash;    </ng-container>&ndash;&gt;
+    <mat-card-actions *ngIf="mainForm.valid">
+      <button mat-flat-button color="primary"b (click)="onSubmitForm()"
+              [disabled]="loading">Save
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>-->
+
+<mat-card [formGroup]="this.dataForm" class="main-form">
+  <mat-card-title>Ajouter un todo</mat-card-title>
+  <mat-card-subtitle>
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Titre : </mat-label>
+        <input id="title" type="text" matInput formControlName="title">
+        <mat-error>Ce champ est requis</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Etat : </mat-label>
+        <input id="state" type="text" matInput formControlName="state">
+        <mat-error>Ce champ est requis</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Description : </mat-label>
+        <textarea id="description" type="text" matInput formControlName="description"></textarea>
+        <mat-error>Ce champ est requis</mat-error>
+      </mat-form-field>
+    </div>
+  </mat-card-subtitle>
+  <mat-card-actions *ngIf="dataForm.valid">
+    <button mat-flat-button color="primary" (click)="onSubmitForm()"
+            [disabled]="loading">ENREGISTRER
+    </button>
+  </mat-card-actions>
+  <mat-spinner *ngIf="loading" color="primary" mode="indeterminate"></mat-spinner>
+</mat-card>
+
+<!--<mat-card [formGroup]="this.mainForm" class="main-form">
+  <mat-card-title>créer un todo</mat-card-title>
+  <mat-card-content>
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <label for="title">Titre : </label>
+        <input id="title" type="text" matInput formControlName="title">
+        <mat-error>Ce champ est requis</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Nom</mat-label>
+        <label for="state">Etat : </label>
+        <input id="state" type="text" matInput formControlName="state">
+        <mat-error>Ce champ est requis</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <label for="description">Description : </label>
+        <textarea id="description" type="text" matInput formControlName="description"></textarea>
+        <mat-error>Ce champ est requis</mat-error>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+  <mat-card-actions *ngIf="mainForm.valid">
+    <button mat-flat-button color="primary" (click)="onSubmitForm()"
+            [disabled]="loading">ENREGISTRER
+    </button>
+  </mat-card-actions>
+  <mat-spinner *ngIf="loading" color="primary" mode="indeterminate"></mat-spinner>
+</mat-card>-->
+
+

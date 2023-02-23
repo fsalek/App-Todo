@@ -1,0 +1,32 @@
+<ng-container>
+  <mat-list>
+    <mat-nav-list *ngIf="todos$ | async as todos">
+      <div class="firstList">
+        <h1>Todo</h1>
+        <mat-card highlight *ngFor="let todo of todos" mat-list-item [routerLink]="todo.id.toString()">
+          <div *ngIf="todo.state != 'VALIDATE'">
+            <mat-card-title>
+              <span highlight color="green">{{ todo.title | titlecase }}</span>
+            </mat-card-title>
+            <mat-card-subtitle>
+              <span>{{ todo.state }}</span>
+            </mat-card-subtitle>
+          </div>
+        </mat-card>
+      </div>
+      <div class="secondList">
+        <h1>Done</h1>
+        <mat-card highlight *ngFor="let todo of todos" mat-list-item [routerLink]="todo.id.toString()">
+          <div *ngIf="todo.state === 'VALIDATE'">
+            <mat-card-title>
+              <span highlight color="green">{{ todo.title | titlecase }}</span>
+            </mat-card-title>
+            <mat-card-subtitle>
+              <span>{{ todo.state }}</span>
+            </mat-card-subtitle>
+          </div>
+        </mat-card>
+      </div>
+    </mat-nav-list>
+  </mat-list>
+</ng-container>
